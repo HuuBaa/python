@@ -421,16 +421,31 @@
 # print('%10d  %s  %s%s' % (fsize, mtime, f, flag))
 
 
-import json
-d= dict(name='huu',age=24)
-f=open('HUU.txt','w')
-json.dump(d,f)
-f.close()
-print(json.dumps(d))
+# import json
+# d= dict(name='huu',age=24)
+# f=open('HUU.txt','w')
+# json.dump(d,f)
+# f.close()
+# print(json.dumps(d))
 
-f=open('HUU.txt','r')
-print(json.load(f))
+# f=open('HUU.txt','r')
+# print(json.load(f))
 
-f.close()
+# f.close()
 
 
+passline = 60
+def func(val):
+    print('%x'%id(val))
+    if val < 60:
+        print('faile')
+    if val >=60:
+        print('pass')
+    def in_func():
+        print(val)
+    in_func()
+    return in_func
+
+f=func(60)
+f()
+print(f.__closure__)

@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ES6零基础教学_解析彩票项目-慕课网实战</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="77103107776157736375" />
+    <meta property="wb:webmaster" content="c4f857219bfae3cb" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *.imooc.com *.mukewang.com *.baidu.com *.sina.com.cn *.bootcss.com">
+    <meta name="keywords" content="ES6零基础教学，ES6实战项目" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="还在为ES5复杂难懂的语法而头疼？有了ES6我们不再烦恼，本课程会全面讲解ES6，结合ES5对比讲解ES6的特性，教你如何应用ES6开发项目，让你的代码更简洁清晰" />
+    
+    <link rel="stylesheet" href="http://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css" type="text/css" />
+    
+    <style type="text/css">
+    .moco-modal-info {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    </style>
+    
+
+
+
+
+			<link merge="false" rel="stylesheet" type='text/css' href="/static/module/class/content/css/98-less.css?v=201705271622" />
+	
+    <script type="text/javascript">
+        var OP_CONFIG={"module":"class","page":"index","userout":0};
+        OP_CONFIG.isLogin = 0;
+        var isLogin = 0;
+        var _msg_unread = 0; 
+        var _not_unread = 0; 
+        var _cartFlag = 0;
+        var seajsTimestamp="v=201705271622";
+            </script>
+    
+    
+    
+<link rel="stylesheet" href="http://coding.imooc.com/static/module/??common/css/common-less.css,course/css/course-less.css,course/css/precon-less.css,class/common/css/index-less.css?v=1496296375" type="text/css" />
+</head>
+<body >
+
+<div id="header">
+    <div class="page-container" id="nav">
+        <div id="logo" class="logo"><a href="http://www.imooc.com/" target="_self" class="hide-text" title="首页">慕课网</a></div>
+        
+        <button type="button" class="navbar-toggle visible-xs-block js-show-menu" >
+            <i class="sz-list"></i>
+        </button>
+        
+        <div class="g-menu-mini l">
+            <a href="javascript:;" class="menu-ctrl">
+                <i class="sz-list"></i>
+            </a>
+            <ul class="nav-item l">
+                        <li class="set-btn visible-xs-block"><a href="http://www.imooc.com/user/newlogin" target="_self">登录</a> / <a href="http://www.imooc.com/user/newsignup" target="_self">注册</a></li>
+                        
+            <li><a href="http://www.imooc.com/course/list" target="_self">课程</a></li>
+            <li><a href="http://class.imooc.com" target="_self" class="program-nav">职业路径<i class="icn-new"></i></a></li>
+            <li><a href="/" class="active" target="_self">实战</a></li>
+            <!--<li><a href="http://www.imooc.com/corp/index"   target="_self">分享</a></li>-->
+                        <li><a href="http://www.imooc.com/wenda" target="_self">猿问</a></li>
+            <li><a href="http://www.imooc.com/article" target="_self">手记</a></li>
+            <!--<li><a href="http://www.imooc.com/wiki" target="_self">WIKI</a></li>-->
+            
+                    </ul>
+        </div>
+                    <div id="login-area">
+                <ul class="header-unlogin clearfix">
+                    <li class="shop-cart" id="shop-cart">
+                        <a href="http://order.imooc.com/pay/cart" class="shop-cart-icon" target="_blank">
+                            <span class="sz-shopping-cart js-endcart"></span>
+                            <span class="shopping_icon js-cart-num"  data-ordernum="0" data-cartnum="0" style='display: none'>0</span>
+                            <span>购物车</span>
+                        </a>
+                        <div class="my-cart" id="js-my-cart"></div>
+                    </li>
+                    <li class="header-signin">
+                        <a href="#" id="js-signin-btn">登录</a>
+                    </li>
+                    <li class="header-signup">
+                        <a href="#" id="js-signup-btn">注册</a>
+                    </li>
+                </ul>
+            </div>
+                    <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
+
+                <div class="pa searchTags js-searchtags" ></div>
+
+                <div class="search-area" data-search="top-banner">
+                    <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="请输入想搜索的内容..." type="text" autocomplete="off">
+                    <input type='hidden' class='btn_search' data-search-btn="search-btn" />
+                    <ul class="search-area-result" data-suggest-result="suggest-result">
+                    </ul>
+                </div>
+                <div class='showhide-search' data-show='no'><i class='sz-search'></i></div>
+            </div>
+        </div>
+        </div>
+        
+
+        
+<div class="course-class-infos pale-color">
+    <div class="w pr">
+		<div class="path">
+			<a href="/">实战</a>
+			<i class="path-split">\</i><span>ES6零基础教学 解析彩票项目</span>
+		</div>
+		
+		<div class="extra">
+			<div class="share-action l bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1439263858135">
+				<a href="javascript:;" class="share wx js-share sz-weixin" data-cmd="weixin" title="分享到微信">
+				</a>
+				<a href="javascript:;" class="share qq js-share sz-qq" data-cmd="qzone" title="分享到QQ空间">
+				</a>
+				
+				<a href="javascript:;" class="share sina js-share sz-weibo" data-cmd="tsina" title="分享到新浪微博">
+				</a>
+			</div>
+		</div>
+		
+		<div class='info-warp tc'>
+			
+			
+			
+			<div class='hide'>
+				<h1 class="l">ES6零基础教学 解析彩票项目</h1>
+			</div>
+			
+			
+			<div class='info-bar tc'>
+				<div class="statics clearfix">
+					<div class="static-item first">
+						<span class="meta">难度</span>
+						<span class="meta-value"><strong>中级</strong></span>
+					</div>
+					<div class="static-item static-time">
+						<span class="meta">时长</span>
+						<span class="meta-value"><strong>12小时 7分钟</strong></span>
+						<em></em>
+					</div>
+					<div class="static-item">
+						<span class="meta">学习人数</span>
+						<span class="meta-value"><strong>477</strong></span>
+						<em></em>
+					</div>
+					<div class="static-item">
+						<span class="meta-value"><strong>10.0分</strong></span>
+						<span class="meta meta-stars">
+							<i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i>
+						</span>
+						<em></em>
+					</div>
+				</div>
+			</div>
+			
+			<div class="price-box">
+				<span class="num clearfix">
+										
+										
+					<span class="discount-price">
+						<span class="baseline baseliner0">
+						<span class="new-y">&yen;</span>
+						<span class="cur-price"><b>188</b><b class="sub">.00</b></span>
+						</span>
+					</span>
+					
+					
+									</span>
+			</div>
+
+			<div class="clearfix btnwarp">
+														<a href="javascript:;" class="js-buy-trigger buy-class-btn class-btn1" data-cid="98" data-pay="0" id="buy-trigger">
+						<span>立即购买</span>
+					</a>
+					
+					<a href='javascript:;' class='js-addcart addcart' data-cid='98' data-type='1'>
+						<span class='line'></span>
+						<i class='sz-add-shopping-cart'></i>
+					</a>
+					
+													<div class="preview-tip"> 			
+								</div>
+			</div>
+
+			<!-- 调价说明 -->
+						
+
+		</div>
+	</div>
+			
+    <div class="info-bg" id="js-info-bg">
+        <div class="cover-img-wrap" style="background-image:url(http://szimg.mukewang.com/58fea87c0001498f20000520.jpg)"></div>     
+    </div>
+</div>
+
+<div class='course-infos-t'>
+<div id='Anchor'></div>
+<div class="comp-tab-t js-comp-tab">
+	<ul class='clearfix'>
+		<li class="comp-tab-item-first comp-tab-item active">
+			<a href="/class/98.html#Anchor">课程介绍</a>
+		</li>
+		<li class="comp-tab-item ">
+			<a href="/class/chapter/98.html#Anchor">课程章节</a>
+		</li>
+		<li class="comp-tab-item">
+			<a href="/class/98.html#Prchor">课程咨询</a>
+			<span>9</span>
+		</li>
+		<li class="comp-tab-item ">
+			<a href="/class/evaluation/98.html#Anchor">用户评价</a>
+			<span>32</span>
+		</li>
+				<li class="comp-tab-item ">
+			<a href="/class/98.html#Envir">环境参数</a>
+		</li>
+				
+	</ul>
+</div>
+
+<div class='js-fixed course-fixed-nav hide'>
+	<h3 class='fixed-course-name' title='ES6零基础教学 解析彩票项目'>ES6零基础教学 解析彩票项目</h3>
+	
+	<ul class='fixed-nav clearfix'>
+		<li class="fixed-nav-item-first fixed-nav-item ml0 active">
+			<a href="/class/98.html#Anchor">课程介绍</a>
+		</li>
+		<li class="fixed-nav-item ">
+			<a href="/class/chapter/98.html#Anchor">课程章节</a>
+		</li>
+		<li class="fixed-nav-item">
+			<a href="/class/98.html#Prchor">课程咨询</a>
+			<span>9</span>
+		</li>
+		<li class="fixed-nav-item ">
+			<a href="/class/evaluation/98.html#Anchor">用户评价</a>
+			<span>32</span>
+		</li>
+				<li class="fixed-nav-item ">
+			<a href="/class/98.html#Envir">环境参数</a>
+		</li>
+				
+	</ul>
+		
+	<div class="goumai">
+								<div class="buy-wrap r">
+				<a href="javascript:;" class="js-buy-trigger fixed-nav-btn fixed-btn1" data-cid="98" data-pay="0" id="buy-trigger">
+					<span>立即购买</span>
+				</a>
+				<a href='javascript:;' class='js-addcart addcart' data-cid='98' data-type='1'>
+					<span class='line'></span>
+					<i class='sz-add-shopping-cart'></i>
+				</a>
+			</div>
+			<span class="r fixed-nav-prices">￥188.00</span>
+			
+						</div>
+</div>
+
+<div class="info-video" style="display: block; background-image: url(http://szimg.mukewang.com/58fea8820001e09a09000500.jpg);">
+	<div class="info-video-box">
+		<div class='info-name'>ES6零基础教学 解析彩票项目</div>
+		<div class='info-desc'>还在为ES5复杂难懂的语法而头疼？有了ES6我们不再烦恼，本课程会全面讲解ES6，结合ES5对比讲解ES6的特性，教你如何应用ES6开发项目，让你的代码更简洁清晰。</div>
+		<div class="js-video-btn video-btn">
+			<i class="sz-play"></i>
+		</div>
+	</div>
+		
+	<div class="comp-tabs-pannel" style='display: none;' data-purl="http://szimg.mukewang.com/58fea8820001e09a09000500.jpg" data-vurl="http://szv1.mukewang.com/58fec1d3e420e5d5038b457b/H.mp4" id="js-video-content">
+		<div class="desc-short">
+		<a href="javascript:void(0);" class="js-close-video close-video sz-close-h"></a>
+		<div class="video-container" id="video-container"></div>
+		</div>
+	</div>
+</div>
+</div>
+			
+<div class="infolayout clearfix">
+	
+
+		<div class="appendtemplate">
+		<div class="introduce-content">
+	<div class="section1">
+		<div class="wrap">
+			<div class="content-box">
+				<h1>我们的目标是解读ES6，让你喜欢用它</h1>
+				<div class="box clearfix">
+					<div class="left-box l">
+						<ul>
+							<li class="clearfix">
+								<i class="l"></i>
+								<div class="text-box l">
+									<p class="smalle-title">手把手由浅入深的讲解ES6</p>
+									<p>从零开始学习ES6语法，针对特定知识点量身设计的迷你案例，深入掌握ES6每个知识点</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<i class="l"></i>
+								<div class="text-box l">
+									<p class="smalle-title">复杂度较高的彩票项目</p>
+									<p>使用ES6开发复杂度较高的彩票项目，完整的开发项目流程，掌握如何最佳的发挥ES6优势</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<i class="l"></i>
+								<div class="text-box l">
+									<p class="smalle-title">全面讲解ES6的特性及应用</p>
+									<p>熟练掌握ES6语法特性，教你在项目中如何选型和实施</p>
+								</div>
+							</li>
+							<li class="clearfix">
+								<i class="l"></i>
+								<div class="text-box l">
+									<p class="smalle-title">兼容IE8+的ES6自动化构建</p>
+									<p>使用babel、gulp、webpack-stream完成兼容IE8+的ES6自动化构建，解决浏览器兼容性问题</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<img class="r" src="/static/module/class/content/img/98/section1-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section2">
+		<div class="wrap">
+			<div class="content-box clearfix">
+				<h1>打消初学者在ES6和ES5之间徘徊的顾虑</h1>
+				<h3>就目前发展形势来看，很多项目在应用ES6，相比ES5特性的优势也尤为突显，在本项目中你会掌握ES6强大的特性</h3>
+				<div class="box-wrap clearfix">
+					<div class="box l">
+						<p class="smalle-title">数组操作</p>
+						<p>填充、类型转换、遍历等</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">字符串扩展 </p>
+						<p>字符串模板、重复计算unicode</p>
+						<p>字符处理、补白操作等</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">函数扩展</p>
+						<p>箭头函数、rest参数、默认值</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">对象区别</p>
+						<p>省略的写法、属性表达式</p>
+						<p>严格比较、对象拷贝</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">数据结构</p>
+						<p>新增了Map和Set</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">异步操作</p>
+						<p>Promise、Generator</p>
+						<p>async和await</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">类操作</p>
+						<p>类的声明、继承、构造函数静</p>
+						<p>态函数、getter和setter等</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">对象代理</p>
+						<p>让代码更安全</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">遍历器</p>
+						<p>允许任意数据结构</p>
+						<p>自定义遍历接口</p>
+					</div>
+					<div class="box l">
+						<p class="smalle-title">模块化</p>
+						<p>使用统一的模块化规范</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section3">
+		<div class="wrap">
+			<div class="content-box clearfix">
+				<div class="box l">
+					<h1>围绕ES6精心设计的彩票项目</br>让你成为前端工程师圈里的佼佼者</h1>
+					<p>本课程是围绕ES6的功能特性逐一展开的，通过ES6开发一个复杂的彩票网站，带你深入了解ES6的语法特性，结合项目将每个知识点运用到实战中，融会贯通，做到从学习到精通</p>
+					<p>通过本课程的学习，学会ES6的语法，你能应对一般的前端工作，胜任初级前端开发工程师</p>
+				</div>
+				<img class="r" src="/static/module/class/content/img/98/section3-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+			</div>
+		</div>
+	</div>
+	<div class="section4">
+		<div class="wrap">
+			<h1>从项目中你会学到如何使用ES6</h1>
+			<div class="content-box clearfix">
+				<div class="box l">
+					<img src="/static/module/class/content/img/98/section4-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<p class="smalle-title">类</p>
+					<p>所有的功能模块都是建立在类之上的，最后通过多重继承实现代码整合</p>
+				</div>
+				<div class="box l">
+					<img src="/static/module/class/content/img/98/section4-2.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<p class="smalle-title">异步操作</p>
+					<p>解决了前后端通信的回调问题，使用异步操作（Promise）更简洁易懂</p>
+				</div>
+				<div class="box l">
+					<img src="/static/module/class/content/img/98/section4-3.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<p class="smalle-title">数据结构</p>
+					<p>使用Set解决数据集合元素不重复的问题，奖号和选号集合，使用Map存储玩法说明，读写清晰</p>
+				</div>
+				<div class="box l">
+					<img src="/static/module/class/content/img/98/section4-4.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<p class="smalle-title">函数扩展</p>
+					<p>rest参数，默认值在选号操作和购物车增删方面表现很强的优势</p>
+				</div>
+				<div class="box l">
+					<img src="/static/module/class/content/img/98/section4-5.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<p class="smalle-title">对象代理</p>
+					<p>对彩种的核心数据状态进行保护不能进行写操作</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section5">
+		<div class="wrap">
+			<div class="content-box clearfix">
+				<h1>入门到实战项目开发流程</h1>
+				<h5>从零构建一个完整的彩票项目</h5>
+				<img src="/static/module/class/content/img/98/section5-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+				<div class="text-box clearfix">
+					<div class="l item">
+						<p>搭建项目架构</p>
+					</div>
+					<div class="l item">
+						<p>分析业务</p>
+						<p>需求划分模块</p>
+					</div>
+					<div class="l item">
+						<p>部署服务器</p>
+						<p>端程序</p>
+					</div>
+					<div class="l item">
+						<p>前后端接口</p>
+						<p>联调及测试</p>
+					</div>
+					<div class="l item">
+						<p>部署上线</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section6">
+		<div class="wrap">
+			<div class="content-box">
+				<h1>学员专享双重福利</h1>
+				<div class="wrap-box clearfix">
+					<div class="left-box box l">
+						<img class="l" src="/static/module/class/content/img/98/section6-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+						<div class="text-box l">
+							<p class="smalle-title">问答专区 </p>
+							<p class="smalle-text">讲师集中答疑</p>
+							<p>任何关于本课程的问题都以在问答区随时提问，也可在问答区和同学相互切磋，讲师会梳理同学们学习中的典型问题，进行集中答疑</p>
+						</div>
+					</div>
+					<div class="right-box box r">
+						<div class="text-box r">
+							<p class="smalle-title">源码开放</p>
+							<p class="smalle-text">整套代码下载</p>
+							<p>课程代码完全开放给你，你可以根据所学知识自行修改代码，不断优化与升级不断丰富代码，甚至可以直接应用在实际工作中</p>
+						</div>
+						<img class="r" src="/static/module/class/content/img/98/section6-2.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="section7">
+		<div class="wrap">
+			<div class="content-box clearfix">
+				<h1>技术储备要求</h1>
+				<p>适合初级前端或不了解ES6的中级前端开发者</p>
+				<p>本课程需要具备编程基础，对JavaScript、jQuery有一定的了解</p>
+				<div class="tea-box clearfix">
+					<img class="l" src="/static/module/class/content/img/98/section7-1.png" alt="ES6零基础教学，解析彩票项目讲台闻头条平台SDK及框架">
+					<div class="l right-box">
+						<h3>资深前端工程师</h3>
+						<h5>快乐动起来啊</h5>
+						<p>多年从事前端技术研发工作，先后在360、去哪儿任资深前端工程师</p>
+						<p>在慕课网有推出自己的课程，乐于分享，对技术有着深厚的理解和完美的追求，讲课语言流畅、思路清晰。曾多次讲授过前端课程，彩票算法、数据图表、视频播放器、旅游资讯业务、广告投放等领域都有一定沉淀，讲课不拘泥、都是用实例说明，简单易懂。是一位不可多得的好老师！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+		
+	
+		<div class="envir-box" id="Envir">
+		<h1>环境参数</h1>
+		<div class="detail-box">
+			<ul class="clearfix">
+								<li class="l ">
+					<span class="detail-tag">技术语言</span>
+					<i class="triangle"></i>
+					<span class="detail">html、css、JavaScript</span>
+				</li>
+								<li class="l ">
+					<span class="detail-tag">课程所需开发系统</span>
+					<i class="triangle"></i>
+					<span class="detail">不限</span>
+				</li>
+								<li class="l ">
+					<span class="detail-tag">环境配置</span>
+					<i class="triangle"></i>
+					<span class="detail">node.js</span>
+				</li>
+							</ul>
+		</div>
+	</div>
+	
+	
+		<div class="user-evaluation-box">
+		<div class="user-evalustion">
+			<h2>万事俱备 只等你来</h2>
+			<ul class="clearfix">
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/54584c9c0001489602200220-100-100.jpg" width="64" height="64">
+						<p class="user-name">坨坨儿</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="慕课网上少有的良心课程，纯干货，性价比超级高，希望多出些类似课程，特别是实战，总觉得一个还不够，至少要做两到三个实战，遇到些不同类型的问题，才能真正消化，并做到胸中有丘壑！">慕课网上少有的良心课程，纯干货，性价比超级高，希望多出些类似课程，特别是实战，总觉得一个还不够，至少要做两到三个实战，遇到些不同类型的问题，才能真正消化，并做到胸中有丘壑！</p>
+				</li>
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/5790b52600012fe501800180-100-100.jpg" width="64" height="64">
+						<p class="user-name">weibo_MR丶Lovable_03702310</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="非常好，很喜欢听老师的声音，ES6的基本特性语法都熟悉了，实战部分也挺好的，业务逻辑其实没怎么实践，不过思想才是最重要的，模块化的设计很不错，但一直都觉得nodejs可以做什么，后端用java c# php go这些都挺好的，实现业务逻辑都不错，对于服务器端来说nodejs好像用的不是很多。前端的话最近在用vue感觉很好用，nodejs也没有特别大的优势。不过es6的语法糖写起来还是挺爽的。反正基础的都知道，还是在以后的学习中不断的探索吧。">非常好，很喜欢听老师的声音，ES6的基本特性语法都熟悉了，实战部分也挺好的，业务逻辑其实没怎么实践，不过思想才是最重要的，模块化的设计很不错，但一直都觉得nodejs可以做什么，后端用java c# php go这些都挺好的，实现业务逻辑都不错，对于服务器端来说nodejs好像用的不是很多。前端的话最近在用vue感觉很好用，nodejs也没有特别大的优势。不过es6的语法糖写起来还是挺爽的。反正基础的都知道，还是在以后的学习中不断的探索吧。</p>
+				</li>
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/54584dc4000118d302200220-100-100.jpg" width="64" height="64">
+						<p class="user-name">手写的从前lpk</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="非常好的课程，收获了很多东西，对gulp的工程构建有了一定的了解，学到了es6的一些高级用法，尤其是开发项目时的模块化思想,能够提升技术，但还要花更多的时间来深入理解，老师讲的非常好。">非常好的课程，收获了很多东西，对gulp的工程构建有了一定的了解，学到了es6的一些高级用法，尤其是开发项目时的模块化思想,能够提升技术，但还要花更多的时间来深入理解，老师讲的非常好。</p>
+				</li>
+							</ul> 
+			<a href="/class/evaluation/98.html#Anchor" class="more">查看全部<span>32</span>条用户评价</a>
+		</div>
+	</div>
+		
+
+	
+	<div class="preconsultation" id="Prchor">
+		<div class="w question-input">
+			<input type="text" placeholder="输入你的课程咨询问题" class="input-block js-inputcont" data-can-search="true" data-pagesize="6">
+			<div class="question-btn js-question-btn" data-cid="98">提问</div>
+		</div>
+		<div class="w question-contain js-load-prelist" data-cid="98">
+			<div class="comp-loading">
+				<i class="sz-loading"></i>
+				<span class="text">数据加载中...</span>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="w shizhan-recommendcourse js-recom-course" data-id="98">
+		
+	</div>
+
+	
+	<div class="w info-recommendcourse js-prelearn" data-id="98">
+	</div>
+	
+
+</div>
+
+
+
+
+        
+<div id="footer">
+<div class="waper">
+    <div class="footerwaper clearfix">
+        <div class="followus r">
+            <a class="followus-weixin" href="javascript:;"  target="_blank" title="微信">
+                <div class="flw-weixin-box"></div>
+            </a>
+            <a class="followus-weibo" href="http://weibo.com/u/3306361973"  target="_blank" title="新浪微博"></a>
+            <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+        </div>
+        <div class="footer_intro l">
+            <div class="footer_link">
+                <ul>
+                    <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                    <li><a href="http://www.imooc.com/about/cooperate" target="_blank" title="企业合作">企业合作</a></li>
+                    <li><a href="http://www.imooc.com/about/job" target="_blank">人才招聘</a></li>
+                    <li> <a href="http://www.imooc.com/about/contact" target="_blank">联系我们</a></li>
+                    <li> <a href="http://www.imooc.com/about/recruit" target="_blank">讲师招募</a></li>
+                     <li> <a href="http://coding.imooc.com/user/faq" target="_blank">常见问题</a></li>
+                    <li> <a href="http://www.imooc.com/user/feedback" target="_blank">意见反馈</a></li>
+                    <li><a href="http://daxue.imooc.com/" target="_blank">慕课大学</a></li>
+                    <li> <a href="http://www.imooc.com/about/friendly" target="_blank">友情链接</a></li>
+                    <!-- <li><a href="http://www.imooc.com/about/us" target="_blank">关于我们</a></li> -->
+                </ul>
+            </div>
+            <p>Copyright © 2017 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="J_GotoTop" class="elevator">
+
+    <a href="/user/feedback" class="elevator-msg"  target="_blank" >
+        <i class="sz-feedback"></i>
+        <span class="">意见反馈</span>
+    </a>
+    <a href="/user/faq" class="elevator-faq"  target="_blank" >
+        <i class="sz-help_outline"></i>
+        <span class="">常见问题</span>
+    </a>
+    <a href="http://www.imooc.com/mobile/app" target="_blank" class="elevator-app" >
+        <i class="sz-appdownload"></i>
+        <span class="">APP下载</span>
+        <div class="elevator-app-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-weixin no-goto" id="js-elevator-weixin" >
+        <i class="sz-weixigzh"></i>
+        <span class="">官方微信</span>
+        <div class="elevator-weixin-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-top no-goto" style="display:none" id="backTop">
+        <i class="sz-arrow-up"></i>
+        <span class="">返回顶部</span>
+    </a>
+</div>
+
+
+
+<script src="/passport/static/scripts/ssologin.js?v=2.0"></script>
+<script type="text/javascript" src="/static/module/common/js/common.js?v=201705271622"></script>
+<script type="text/javascript" src="http://www.imooc.com/static/moco/v1.0/dist/js/moco.min.js"></script>
+
+
+
+
+
+
+    <script>/*RESOURCE_MAP*/</script>
+    <script src='/static/lib/jquery-fly/jquery.fly.js'></script>
+	 <!--[if gte IE 9]><script src='/static/lib/jquery-fly/requestAnimationFrame.js'></script><![endif]-->
+    <script data-entry="class/index">
+		requirejs(['class/index'], function(){
+    });
+    (function(){
+        var imgPic = 'http://szimg.mukewang.com/58fea8780001f29c05400300-280-160.jpg' || 'http://img.mukewang.com/static/img/common/logo.png',
+            text = '我正在参加@慕课网 的一门课程【' + 'ES6零基础教学 解析彩票项目' + '】，很不错哦！快来一起学习吧！', //节名称
+            url = 'http://coding.imooc.com' + window.location.pathname;
+
+        window._bd_share_config = {
+            "common": {
+                "bdUrl": url,
+                "bdSnsKey": {
+                  'tsina':'2788596354'
+                },
+                "bdText": text,
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": imgPic,
+                "bdStyle": "0",
+                "bdSize": "16"
+            },
+            "share": {}
+        };
+        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+      })();
+    </script>
+
+
+<div class="comp-modal-overlay"></div>
+<div class="modal modal-buy" id="before-buy-modal">
+    <div class="inner">
+        <div class="header">
+            <strong class="tit">购买课程</strong>
+            <a href="javascript:;" class="help">帮助？</a>
+        </div>
+        <div class="content">
+            <div class="infos">
+                <span class="name">ES6零基础教学 解析彩票项目</span>
+                <span class="price">
+																	<i>&yen;</i><b>188</b><i>.00</i>
+								</span>
+                <span class="deadline">
+					
+					                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="javascript:;" class="cancel-btn" rel="modal:close">取消</a>
+            <a data-href="/pay/buynow/cid/98" href='javascript:;' class="go-pay-btn">去支付</a>
+        </div>
+    </div>
+</div>
+
+<div style="display: none">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c1c5f01e0fc4d75fd5cbb16f2e713d56";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</div>
+
+</body>
+</html>

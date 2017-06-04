@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>微信小程序开发入门与实战教程-慕课网实战</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="77103107776157736375" />
+    <meta property="wb:webmaster" content="c4f857219bfae3cb" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' *.imooc.com *.mukewang.com *.baidu.com *.sina.com.cn *.bootcss.com">
+    <meta name="keywords" content="微信小程序开发教程，微信小程序开发入门" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="微信小程序开发上手极其简单，我们一起开发一个集新闻阅读与电影影讯为一体的小程序，做完这个项目，你就能掌握小程序全部的常用组件、API和开发技巧，开发出你想要的小程序" />
+    
+    <link rel="stylesheet" href="http://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css" type="text/css" />
+    
+    <style type="text/css">
+    .moco-modal-info {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    </style>
+    
+
+
+
+
+			<link merge="false" rel="stylesheet" type='text/css' href="/static/module/class/content/css/75-less.css?v=201705271622" />
+	
+    <script type="text/javascript">
+        var OP_CONFIG={"module":"class","page":"index","userout":0};
+        OP_CONFIG.isLogin = 0;
+        var isLogin = 0;
+        var _msg_unread = 0; 
+        var _not_unread = 0; 
+        var _cartFlag = 0;
+        var seajsTimestamp="v=201705271622";
+            </script>
+    
+    
+    
+<link rel="stylesheet" href="http://coding.imooc.com/static/module/??common/css/common-less.css,course/css/course-less.css,course/css/precon-less.css,class/common/css/index-less.css?v=1496296375" type="text/css" />
+</head>
+<body >
+
+<div id="header">
+    <div class="page-container" id="nav">
+        <div id="logo" class="logo"><a href="http://www.imooc.com/" target="_self" class="hide-text" title="首页">慕课网</a></div>
+        
+        <button type="button" class="navbar-toggle visible-xs-block js-show-menu" >
+            <i class="sz-list"></i>
+        </button>
+        
+        <div class="g-menu-mini l">
+            <a href="javascript:;" class="menu-ctrl">
+                <i class="sz-list"></i>
+            </a>
+            <ul class="nav-item l">
+                        <li class="set-btn visible-xs-block"><a href="http://www.imooc.com/user/newlogin" target="_self">登录</a> / <a href="http://www.imooc.com/user/newsignup" target="_self">注册</a></li>
+                        
+            <li><a href="http://www.imooc.com/course/list" target="_self">课程</a></li>
+            <li><a href="http://class.imooc.com" target="_self" class="program-nav">职业路径<i class="icn-new"></i></a></li>
+            <li><a href="/" class="active" target="_self">实战</a></li>
+            <!--<li><a href="http://www.imooc.com/corp/index"   target="_self">分享</a></li>-->
+                        <li><a href="http://www.imooc.com/wenda" target="_self">猿问</a></li>
+            <li><a href="http://www.imooc.com/article" target="_self">手记</a></li>
+            <!--<li><a href="http://www.imooc.com/wiki" target="_self">WIKI</a></li>-->
+            
+                    </ul>
+        </div>
+                    <div id="login-area">
+                <ul class="header-unlogin clearfix">
+                    <li class="shop-cart" id="shop-cart">
+                        <a href="http://order.imooc.com/pay/cart" class="shop-cart-icon" target="_blank">
+                            <span class="sz-shopping-cart js-endcart"></span>
+                            <span class="shopping_icon js-cart-num"  data-ordernum="0" data-cartnum="0" style='display: none'>0</span>
+                            <span>购物车</span>
+                        </a>
+                        <div class="my-cart" id="js-my-cart"></div>
+                    </li>
+                    <li class="header-signin">
+                        <a href="#" id="js-signin-btn">登录</a>
+                    </li>
+                    <li class="header-signup">
+                        <a href="#" id="js-signup-btn">注册</a>
+                    </li>
+                </ul>
+            </div>
+                    <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
+
+                <div class="pa searchTags js-searchtags" ></div>
+
+                <div class="search-area" data-search="top-banner">
+                    <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="请输入想搜索的内容..." type="text" autocomplete="off">
+                    <input type='hidden' class='btn_search' data-search-btn="search-btn" />
+                    <ul class="search-area-result" data-suggest-result="suggest-result">
+                    </ul>
+                </div>
+                <div class='showhide-search' data-show='no'><i class='sz-search'></i></div>
+            </div>
+        </div>
+        </div>
+        
+
+        
+<div class="course-class-infos pale-color">
+    <div class="w pr">
+		<div class="path">
+			<a href="/">实战</a>
+			<i class="path-split">\</i><span>微信小程序入门与实战  常用组件 API 开发技巧 项目实战</span>
+		</div>
+		
+		<div class="extra">
+			<div class="share-action l bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1439263858135">
+				<a href="javascript:;" class="share wx js-share sz-weixin" data-cmd="weixin" title="分享到微信">
+				</a>
+				<a href="javascript:;" class="share qq js-share sz-qq" data-cmd="qzone" title="分享到QQ空间">
+				</a>
+				
+				<a href="javascript:;" class="share sina js-share sz-weibo" data-cmd="tsina" title="分享到新浪微博">
+				</a>
+			</div>
+		</div>
+		
+		<div class='info-warp tc'>
+			
+			
+			
+			<div class='hide'>
+				<h1 class="l">微信小程序入门与实战  常用组件 API 开发技巧 项目实战</h1>
+			</div>
+			
+			
+			<div class='info-bar tc'>
+				<div class="statics clearfix">
+					<div class="static-item first">
+						<span class="meta">难度</span>
+						<span class="meta-value"><strong>初级</strong></span>
+					</div>
+					<div class="static-item static-time">
+						<span class="meta">时长</span>
+						<span class="meta-value"><strong>14小时39分钟</strong></span>
+						<em></em>
+					</div>
+					<div class="static-item">
+						<span class="meta">学习人数</span>
+						<span class="meta-value"><strong>5499</strong></span>
+						<em></em>
+					</div>
+					<div class="static-item">
+						<span class="meta-value"><strong>9.9分</strong></span>
+						<span class="meta meta-stars">
+							<i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i>
+						</span>
+						<em></em>
+					</div>
+				</div>
+			</div>
+			
+			<div class="price-box">
+				<span class="num clearfix">
+										
+										
+					<span class="discount-price">
+						<span class="baseline baseliner0">
+						<span class="new-y">&yen;</span>
+						<span class="cur-price"><b>149</b><b class="sub">.00</b></span>
+						</span>
+					</span>
+					
+					
+									</span>
+			</div>
+
+			<div class="clearfix btnwarp">
+														<a href="javascript:;" class="js-buy-trigger buy-class-btn class-btn1" data-cid="75" data-pay="0" id="buy-trigger">
+						<span>立即购买</span>
+					</a>
+					
+					<a href='javascript:;' class='js-addcart addcart' data-cid='75' data-type='1'>
+						<span class='line'></span>
+						<i class='sz-add-shopping-cart'></i>
+					</a>
+					
+													<div class="preview-tip"> 			
+								</div>
+			</div>
+
+			<!-- 调价说明 -->
+						
+
+		</div>
+	</div>
+			
+    <div class="info-bg" id="js-info-bg">
+        <div class="cover-img-wrap" style="background-image:url(http://szimg.mukewang.com/583e42ff00012ed120000520.jpg)"></div>     
+    </div>
+</div>
+
+<div class='course-infos-t'>
+<div id='Anchor'></div>
+<div class="comp-tab-t js-comp-tab">
+	<ul class='clearfix'>
+		<li class="comp-tab-item-first comp-tab-item active">
+			<a href="/class/75.html#Anchor">课程介绍</a>
+		</li>
+		<li class="comp-tab-item ">
+			<a href="/class/chapter/75.html#Anchor">课程章节</a>
+		</li>
+		<li class="comp-tab-item">
+			<a href="/class/75.html#Prchor">课程咨询</a>
+			<span>153</span>
+		</li>
+		<li class="comp-tab-item ">
+			<a href="/class/evaluation/75.html#Anchor">用户评价</a>
+			<span>430</span>
+		</li>
+				
+	</ul>
+</div>
+
+<div class='js-fixed course-fixed-nav hide'>
+	<h3 class='fixed-course-name' title='微信小程序入门与实战  常用组件 API 开发技巧 项目实战'>微信小程序入门与实战  常用组件 API 开发技巧 项目实战</h3>
+	
+	<ul class='fixed-nav clearfix'>
+		<li class="fixed-nav-item-first fixed-nav-item ml0 active">
+			<a href="/class/75.html#Anchor">课程介绍</a>
+		</li>
+		<li class="fixed-nav-item ">
+			<a href="/class/chapter/75.html#Anchor">课程章节</a>
+		</li>
+		<li class="fixed-nav-item">
+			<a href="/class/75.html#Prchor">课程咨询</a>
+			<span>153</span>
+		</li>
+		<li class="fixed-nav-item ">
+			<a href="/class/evaluation/75.html#Anchor">用户评价</a>
+			<span>430</span>
+		</li>
+				
+	</ul>
+		
+	<div class="goumai">
+								<div class="buy-wrap r">
+				<a href="javascript:;" class="js-buy-trigger fixed-nav-btn fixed-btn1" data-cid="75" data-pay="0" id="buy-trigger">
+					<span>立即购买</span>
+				</a>
+				<a href='javascript:;' class='js-addcart addcart' data-cid='75' data-type='1'>
+					<span class='line'></span>
+					<i class='sz-add-shopping-cart'></i>
+				</a>
+			</div>
+			<span class="r fixed-nav-prices">￥149.00</span>
+			
+						</div>
+</div>
+
+<div class="info-video" style="display: block; background-image: url(http://szimg.mukewang.com/583e430d00015c8909000500.jpg);">
+	<div class="info-video-box">
+		<div class='info-name'>微信小程序入门与实战  常用组件 API 开发技巧 项目实战</div>
+		<div class='info-desc'>小程序官方正式公告，开放了更多的入口，个人开发者可以申请注册，公众号菜单可以直接点开，移动App可以直接分享，小程序越来越开放了！别犹豫该不该学小程序开发，在你犹豫的时候，别人的小程序已经开发好了！
+</div>
+		<div class="js-video-btn video-btn">
+			<i class="sz-play"></i>
+		</div>
+	</div>
+		
+	<div class="comp-tabs-pannel" style='display: none;' data-purl="http://szimg.mukewang.com/583e430d00015c8909000500.jpg" data-vurl="http://szv1.mukewang.com/583d5988b3fee311398b457c/H.mp4" id="js-video-content">
+		<div class="desc-short">
+		<a href="javascript:void(0);" class="js-close-video close-video sz-close-h"></a>
+		<div class="video-container" id="video-container"></div>
+		</div>
+	</div>
+</div>
+</div>
+			
+<div class="infolayout clearfix">
+	
+
+		<div class="appendtemplate">
+		<div class="introduce-content">
+	<div class="container-2">
+		<div class="w1200">
+			<h2>作为程序员，竟然想不出你不学这门课的理由</h2>
+			<h3 class="h-title">自己去看看课程评价吧!</h3>
+			<dl>
+				<dt>你担心小程序未来的时候，已经有这么多人在学习了</dt>
+				<dd>看看课程的报名人数，关于小程序，你担心的问题或许都不是问题，微信对小程序的扶持力度越来<br>越大，别听媒体评论忽悠你，用你程序员的思维自己判断一下，学or不学，哪个损失大？</dd>
+				<dt>课程一直紧跟微信官方不断更新</dt>
+				<dd>微信官方为小程序开放了更多的入口和接口，讲师像维护产品一样持续升级课程，课程内容一直紧<br>随微信的更新不断调整、丰富，说真的，除了慕课网，哪里还有这种会令你感动的课程</dd>
+				<dt>不怕你对前端不熟悉！</dt>
+				<dd>开发小程序不需要学习AngularJS、Vue或React等复杂的前端框架及类库，学习曲线相当的平滑。通<br>过小程序入门前端，再反向学习其它前端框架，对于0基础开发者或想进军前端的开发者是一条非常好<br>的捷径</dd>
+			</dl>
+			<ul class="b-1-list clearfix">
+				<li>
+					<div class="top">
+						<i class="t-icon-1"></i>
+						<h3 class="t-title">
+							上手就是实战
+						</h3>
+					</div>
+					<p class="desc">
+						开始就以项目为出发点，不会讲一大堆枯燥的语法再补充两个案例了事，将带你快速熟悉小程序基础知识，然后直接进入实战开发环节，将小程序的知识点贯穿在整个项目中
+					</p>
+				</li>
+				<li>
+					<div class="top">
+						<i class="t-icon-2"></i>
+						<h3 class="t-title">
+							经典编程思想
+						</h3>
+					</div>
+					<p class="desc">
+						课程不仅仅讲解小程序开发，更会通过实际的编码来传递一些编程的经典思想，例如，组件式开发、重构、复用等，让你学会举一反三
+					</p>
+				</li>
+				<li>
+					<div class="top">
+						<i class="t-icon-3"></i>
+						<h3 class="t-title">
+							快速学会新技术
+						</h3>
+					</div>
+					<p class="desc">
+						新技术缺少材料、案例、教程，但为什么有的开发者就能第一时间快速上手，还能做出不错的项目呢？通过这门课程的学习，你也可以掌握这种能力！
+					</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container-1">
+		<div class="w1200">
+			 <h2>学习小程序开发，实际是学“MINA”框架</h2>
+			 <p>
+			 	学习微信小程序，不是学习JavaScript也不是学习CSS，而是学习小程序的“MINA”框架。这个框架为小程序的运行提供了丰富的组件和API。通过本课程一系列实战，你将学会和掌握小程序的框架结构、数据绑定机制、模板、数据缓存、常用组件和API等相关知识
+			 </p>
+
+		</div>
+	</div>	
+	<dvi class="container-9">
+		<h2>别人已经开发好一大波小程序<br>再不学就来不及了</h2>
+		<ul class="show-imgs clearfix">
+			<li>
+				<img src="/static/module/class/content/img/75/9-1.png">
+			</li>
+			<li>
+				<img src="/static/module/class/content/img/75/9-2.png">
+			</li>
+			<li>
+				<img src="/static/module/class/content/img/75/9-3.png">
+			</li>
+			<li>
+				<img src="/static/module/class/content/img/75/9-4.png">
+			</li>
+			<li>
+				<img src="/static/module/class/content/img/75/9-5.png">
+			</li>
+		</ul>
+	</dvi>
+	<div class="container-3">
+		<h2>我们做一个集阅读与电影于一体的小程序</h2>
+		<div class="w1200">
+			<p class="project-des">“<b>阅读</b>”是一个类似于“知乎”的文章阅读器，用户在这里可以阅读文章或听音乐<br>
+“<b>电影</b>”是一个查看最新电影资讯的地方。在这里可以查看到“正在上映”、“即将上映”和“Top250”的电影资讯</p>
+			<dl class="show-list">
+				<dd>
+					<img src="/static/module/class/content/img/75/3-1.jpg">
+					<p>启动页</p>
+				</dd>
+				<dd>
+					<img src="/static/module/class/content/img/75/3-2.jpg">
+					<p>新闻列表页</p>
+				</dd>
+				<dd>
+					<img src="/static/module/class/content/img/75/3-3.jpg">
+					<p>新闻详情页</p>
+				</dd>
+				<dd>
+					<img src="/static/module/class/content/img/75/3-4.jpg">
+					<p>电影详情页</p>
+				</dd>
+				<dd>
+					<img src="/static/module/class/content/img/75/3-5.jpg">
+					<p>电影搜索页</p>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="container-4">
+		<h2><span class="green">怎么</span>在实际开发中<span class="green">学会小程序开发</span></h2>
+		<dl class="do-list clearfix w840">
+			<dd class="fl padT30">
+				<i class="i-1">1</i>
+				<p class="tit">静态启动页面</p>
+				<div class="line"></div>
+				<p>目录结构、文件类型<br/>自适应单位rpx<br/>弹性盒子布局<br/>View、Image组件的应用</p>
+			</dd>
+			<dd class="fl mlr60 padT30">
+				<i class="i-2">2</i>
+				<p class="tit">构建新闻列表页</p>
+				<div class="line"></div>
+				<p>配置文件、Swiper组件<br/>Page页面的生命周期、数据绑定<br/>数据缓存与列表渲染<br/>template模板化编程</p>
+			</dd>
+			<dd class="fl padT30">
+				<i class="i-3">3</i>
+				<p class="tit">构建新闻详情页</p>
+				<div class="line"></div>
+				<p>音乐播放<br/>状态栏通知<br/>操作菜单等组件和API的用法</p>
+			</dd>
+			<dd class="fl padT15">
+				<i class="i-4">4</i>
+				<p class="tit">构建电影影讯页<br/>及电影详情页</p>
+				<div class="line"></div>
+				<p>调用真实网络数据填充<br/>请求服务器数据<br/>模块儿化编程<br/>上滑加载数据、下拉刷新数据<br/>Image组件的高级用法</p>
+			</dd>
+			<dd class="fl mlr60 padT15">
+				<i class="i-3">5</i>
+				<p class="tit">小程序公众号<br/>后台配置</p>
+				<div class="line"></div>
+				<p>绑定开发者微信<br/>配置服务器地址等</p>
+			</dd>
+			<dd class="fl padT30">
+				<i class="i-4">6</i>
+				<p class="tit">课程扩展知识点</p>
+				<div class="line"></div>
+				<p>ES6－Class编写面向对象JS代码<br/>ES6－"箭头=>"定义函数<br/>Form表单类组件讲解<br/>Map地图组件及地理位置API<br/>小程序里使用less和sass</p>
+			</dd>
+		</dl>
+		
+	</div>
+	<div class="container-5">
+		<div class="w840">
+			<div class="do-what">
+				<h2>学会“小程序”开发<br/>能干什么？</h2>
+				<p>
+					各公司对小程序开发者的招聘已经启动！<br/>
+					正准备抢滩红利的创业者已经率先行动！<br/>
+					众多独立开发者摩拳擦掌已经蠢蠢欲动！<br/>
+					<b>未来的世界风起云动, 难道你就一动不动？</b>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container-6">		
+		<h2>讲师像维护一个产品一样维护这门课</h2>
+		<div class="w840 c-6-warp clearfix">
+			<div class="left-block">
+				<div class="l-icon"></div>	
+				<p class="left-desc">
+					由于小程序初期版本迭代改动较大，讲师会根<br>据小程序的变化持续更新课程内容
+				</p>
+			</div>
+			<div class="right-block">
+				<div class="r-icon"></div>	
+				<p class="right-desc">
+					有关小程序开发的任何问题都可以在问答区向讲<br>师提问，讲师会非常积极的为你解答，同时，你<br>也可以和同学就相关问题切磋讨论
+				</p>
+			</div>
+		</div>		
+	</div>
+	<div class="container-7">
+		<h2>适合人群及技术储备要求</h2>
+		<p class="right-dec">有一定JavaScript和CSS基础，不需要你精通JavaScript和CSS<br/>了解JavaScript和CSS的基本语法即可</p>
+	</div>
+	<div class="container-8">
+		<div class="w1200">
+			<h2>横跨三个时代的开发者</h2>
+			<img class="teacher-photo" src="/static/module/class/content/img/75/teacher.png">
+			<div class="w1020 intro-box">
+				<p class="teacher-name">神秘讲师“七月”</p>
+				<p class="p1"><b>作为微信小程序第一波开发者，他受邀编写小程序开发书籍，不久就会出版</b></p>
+				<p class="p1">作为有八年研发及团队管理经验，做过程序员、当过项目经理、技术总监、CTO的开发者，他喜欢写代码带来成就感，桌面时代用Dephi、C#写代码；Web时代用Flex、Silverlight、Python、Javascript、Java写代码；移动时代只用JavaScript写代码。作为紧跟时代的开发者，每当有新的技术和项目出现，他都会第一时间跟进，对于微信小程序也是如此。</p>
+				<p class="p1"><b>这样的老师来教你，还犹豫什么呢！</b></p>
+			</div>
+		</div>
+	</div>
+</div>
+	</div>
+		
+	
+	
+	
+		<div class="user-evaluation-box">
+		<div class="user-evalustion">
+			<h2>万事俱备 只等你来</h2>
+			<ul class="clearfix">
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/547c0e290001c51201000100-100-100.jpg" width="64" height="64">
+						<p class="user-name">马北田共</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="你可能还在考虑要不要看，是不是不值得这个价钱？要是以后小程序不火了，学了岂不亏了？不会的，这不仅讲了小程序，其实还讲了很多编程的思想，而且你了解微信这么做小程序的一些组件和api是为了什么，对于自己写一些框架也是有帮助的，如果你还在犹豫，那么我果断推荐你购买观看，我是自来水。">你可能还在考虑要不要看，是不是不值得这个价钱？要是以后小程序不火了，学了岂不亏了？不会的，这不仅讲了小程序，其实还讲了很多编程的思想，而且你了解微信这么做小程序的一些组件和api是为了什么，对于自己写一些框架也是有帮助的，如果你还在犹豫，那么我果断推荐你购买观看，我是自来水。</p>
+				</li>
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/561677b5000124ef02200220-100-100.jpg" width="64" height="64">
+						<p class="user-name">big_big_girl</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="老师讲得很细腻，要听完一遍了，感觉老师是在用心教学，他不单单只是为了完成这个课程，更是在给我们讲人生，因为程序或许只是我们生活中的一部分，但是学编程就像是在学生活，bug在鼓励我们不要放弃他，就好像是我们生活的的一些不如意再告诉我们挺过去又是美好的一天。感谢老师对我们的鼓励和教导，给老师点n个赞">老师讲得很细腻，要听完一遍了，感觉老师是在用心教学，他不单单只是为了完成这个课程，更是在给我们讲人生，因为程序或许只是我们生活中的一部分，但是学编程就像是在学生活，bug在鼓励我们不要放弃他，就好像是我们生活的的一些不如意再告诉我们挺过去又是美好的一天。感谢老师对我们的鼓励和教导，给老师点n个赞</p>
+				</li>
+								<li class="l">
+					<div class="user-box clearfix">
+						<img src="http://img.mukewang.com/user/533e4bec0001ae5302000200-100-100.jpg" width="64" height="64">
+						<p class="user-name">慕粉3156105</p>
+						<div class="user-text-box">
+							<p class="star js-bstar">
+								<span class='star'><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i><i class="sz-star on"></i></span>
+							</p>
+						</div>
+					</div>
+					<p class="content" title="这门课讲的确实不错，我都点怀疑是不是微信小程序团队的开发人员，或者就是赵小龙本人！！！哈哈，点个赞，想学小程序，这门课无疑是最好的选择">这门课讲的确实不错，我都点怀疑是不是微信小程序团队的开发人员，或者就是赵小龙本人！！！哈哈，点个赞，想学小程序，这门课无疑是最好的选择</p>
+				</li>
+							</ul> 
+			<a href="/class/evaluation/75.html#Anchor" class="more">查看全部<span>430</span>条用户评价</a>
+		</div>
+	</div>
+		
+
+	
+	<div class="preconsultation" id="Prchor">
+		<div class="w question-input">
+			<input type="text" placeholder="输入你的课程咨询问题" class="input-block js-inputcont" data-can-search="true" data-pagesize="6">
+			<div class="question-btn js-question-btn" data-cid="75">提问</div>
+		</div>
+		<div class="w question-contain js-load-prelist" data-cid="75">
+			<div class="comp-loading">
+				<i class="sz-loading"></i>
+				<span class="text">数据加载中...</span>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="w shizhan-recommendcourse js-recom-course" data-id="75">
+		
+	</div>
+
+	
+	<div class="w info-recommendcourse js-prelearn" data-id="75">
+	</div>
+	
+
+</div>
+
+
+
+
+        
+<div id="footer">
+<div class="waper">
+    <div class="footerwaper clearfix">
+        <div class="followus r">
+            <a class="followus-weixin" href="javascript:;"  target="_blank" title="微信">
+                <div class="flw-weixin-box"></div>
+            </a>
+            <a class="followus-weibo" href="http://weibo.com/u/3306361973"  target="_blank" title="新浪微博"></a>
+            <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+        </div>
+        <div class="footer_intro l">
+            <div class="footer_link">
+                <ul>
+                    <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                    <li><a href="http://www.imooc.com/about/cooperate" target="_blank" title="企业合作">企业合作</a></li>
+                    <li><a href="http://www.imooc.com/about/job" target="_blank">人才招聘</a></li>
+                    <li> <a href="http://www.imooc.com/about/contact" target="_blank">联系我们</a></li>
+                    <li> <a href="http://www.imooc.com/about/recruit" target="_blank">讲师招募</a></li>
+                     <li> <a href="http://coding.imooc.com/user/faq" target="_blank">常见问题</a></li>
+                    <li> <a href="http://www.imooc.com/user/feedback" target="_blank">意见反馈</a></li>
+                    <li><a href="http://daxue.imooc.com/" target="_blank">慕课大学</a></li>
+                    <li> <a href="http://www.imooc.com/about/friendly" target="_blank">友情链接</a></li>
+                    <!-- <li><a href="http://www.imooc.com/about/us" target="_blank">关于我们</a></li> -->
+                </ul>
+            </div>
+            <p>Copyright © 2017 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="J_GotoTop" class="elevator">
+
+    <a href="/user/feedback" class="elevator-msg"  target="_blank" >
+        <i class="sz-feedback"></i>
+        <span class="">意见反馈</span>
+    </a>
+    <a href="/user/faq" class="elevator-faq"  target="_blank" >
+        <i class="sz-help_outline"></i>
+        <span class="">常见问题</span>
+    </a>
+    <a href="http://www.imooc.com/mobile/app" target="_blank" class="elevator-app" >
+        <i class="sz-appdownload"></i>
+        <span class="">APP下载</span>
+        <div class="elevator-app-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-weixin no-goto" id="js-elevator-weixin" >
+        <i class="sz-weixigzh"></i>
+        <span class="">官方微信</span>
+        <div class="elevator-weixin-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-top no-goto" style="display:none" id="backTop">
+        <i class="sz-arrow-up"></i>
+        <span class="">返回顶部</span>
+    </a>
+</div>
+
+
+
+<script src="/passport/static/scripts/ssologin.js?v=2.0"></script>
+<script type="text/javascript" src="/static/module/common/js/common.js?v=201705271622"></script>
+<script type="text/javascript" src="http://www.imooc.com/static/moco/v1.0/dist/js/moco.min.js"></script>
+
+
+
+
+
+
+    <script>/*RESOURCE_MAP*/</script>
+    <script src='/static/lib/jquery-fly/jquery.fly.js'></script>
+	 <!--[if gte IE 9]><script src='/static/lib/jquery-fly/requestAnimationFrame.js'></script><![endif]-->
+    <script data-entry="class/index">
+		requirejs(['class/index'], function(){
+    });
+    (function(){
+        var imgPic = 'http://szimg.mukewang.com/583e42fb0001e04f05400300-280-160.jpg' || 'http://img.mukewang.com/static/img/common/logo.png',
+            text = '我正在参加@慕课网 的一门课程【' + '微信小程序入门与实战  常用组件 API 开发技巧 项目实战' + '】，很不错哦！快来一起学习吧！', //节名称
+            url = 'http://coding.imooc.com' + window.location.pathname;
+
+        window._bd_share_config = {
+            "common": {
+                "bdUrl": url,
+                "bdSnsKey": {
+                  'tsina':'2788596354'
+                },
+                "bdText": text,
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": imgPic,
+                "bdStyle": "0",
+                "bdSize": "16"
+            },
+            "share": {}
+        };
+        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+      })();
+    </script>
+
+
+<div class="comp-modal-overlay"></div>
+<div class="modal modal-buy" id="before-buy-modal">
+    <div class="inner">
+        <div class="header">
+            <strong class="tit">购买课程</strong>
+            <a href="javascript:;" class="help">帮助？</a>
+        </div>
+        <div class="content">
+            <div class="infos">
+                <span class="name">微信小程序入门与实战  常用组件 API 开发技巧 项目实战</span>
+                <span class="price">
+																	<i>&yen;</i><b>149</b><i>.00</i>
+								</span>
+                <span class="deadline">
+					
+					                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="javascript:;" class="cancel-btn" rel="modal:close">取消</a>
+            <a data-href="/pay/buynow/cid/75" href='javascript:;' class="go-pay-btn">去支付</a>
+        </div>
+    </div>
+</div>
+
+<div style="display: none">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c1c5f01e0fc4d75fd5cbb16f2e713d56";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</div>
+
+</body>
+</html>
