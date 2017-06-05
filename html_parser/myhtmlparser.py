@@ -36,7 +36,7 @@ class MyHTMLParser(HTMLParser):
                     self.flag_loc=True
     def handle_endtag(self, tag):
         if self.flag_h3 and self.flag_a:
-            print('会议:',self.name)
+            print('会议名称:',self.name)
             self.flag_a=False
             self.flag_h3=False
         if self.flag_time:
