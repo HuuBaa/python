@@ -22,11 +22,11 @@ soup=BeautifulSoup(htmldata,"html.parser")
 # data=soup.find_all(re.compile(r'^b'))
 # for tag in data:
 #     print(tag.name)
-# print(soup.find_all('a',href=re.compile(r'http://example\.com/')))
+print(soup.find_all('a',href=re.compile(r'http://example\.com/')))
 
 # print(soup.find_all('p',class_=re.compile(r'title')))
 
-def has_six_characters(css_class):
-    return css_class is not None and len(css_class) == 5
+# def has_six_characters(css_class):
+#     return css_class is not None and len(css_class) == 5
 
-print(soup.find_all(class_=has_six_characters))
+# print(soup.find_all(class_=has_six_characters))
